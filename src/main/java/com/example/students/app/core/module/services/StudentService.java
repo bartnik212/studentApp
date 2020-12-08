@@ -4,6 +4,8 @@ import com.example.students.app.core.model.Student;
 import com.example.students.app.core.module.repositories.StudentRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentService {
 
@@ -13,7 +15,11 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public void save (Student student) {
+    public void save(Student student) {
         studentRepository.save(student);
+    }
+
+    public List<Student> findAllStudents() {
+        return studentRepository.findAll();
     }
 }

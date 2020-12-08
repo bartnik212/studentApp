@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/student")
 public class StudentController {
@@ -35,5 +37,13 @@ public class StudentController {
     public String postStudent(Student student) {
         studentService.save(student);
         return "redirect:/student/landing_page";
+    }
+
+    @GetMapping("/list")
+    public String findAllStudents(Model model) {
+        List<Student> studentList = studentService.findAllStudents();
+        model.addAttribute("studentList", studentList);
+
+        return "student_list";
     }
 }
