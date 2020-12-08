@@ -17,16 +17,16 @@ public class StudentController {
         return "landing_page";
     }
 
-//    @GetMapping("/add")
-//    public String addStudent(Model model) {
-//        model.addAttribute("newStudent", new Student());
-//
-//        return "student_form";
-//    }
-//
-//    @PostMapping("/add")
-//    public String postStudent() {
-//
-//        return "student_form";
-//    }
+    @GetMapping("/add")
+    public String addStudent(Model model) {
+        model.addAttribute("newStudent", new Student());
+
+        return "student_form";
+    }
+
+    @PostMapping("/add")
+    public String postStudent() {
+
+        return "student_form";
+    }
 }
