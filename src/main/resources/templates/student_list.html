@@ -2,32 +2,57 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <title>Student List</title>
 </head>
 <body>
-<div class="table">
-    <div class="header-row">
-        <div class="header-cell">
-            Id
-        </div>
-        <div class="header-cell">
-            First Name
-        </div>
-        <div class="header-cell">
-            Last Name
-        </div>
-        <div class="header-cell">
-            Birthdate
-        </div>
-    </div>
-    <div class="student-row" th:each="student : ${studentList}">
-        <div class="student-cell" th:text="${student.id}"></div>
-        <div class="student-cell" th:text="${student.name}"></div>
-        <div class="student-cell" th:text="${student.surname}"></div>
-        <div class="student-cell" th:text="${student.birthDate}"></div>
 
-    </div>
-</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Birthdate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <div th:each="student : ${studentList}">
+            <th scope="row" th:text="${student.id}"></th>
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.surname}"></td>
+            <td th:text="${student.birthDate}"></td>
+
+        </div>
+    </tr>
+    </tbody>
+</table>
+
+
+<!--<div class="table">-->
+<!--    <div class="header-row">-->
+<!--        <div class="header-cell">-->
+<!--            Id-->
+<!--        </div>-->
+<!--        <div class="header-cell">-->
+<!--            First Name-->
+<!--        </div>-->
+<!--        <div class="header-cell">-->
+<!--            Last Name-->
+<!--        </div>-->
+<!--        <div class="header-cell">-->
+<!--            Birthdate-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="student-row" th:each="student : ${studentList}">-->
+<!--        <div class="student-cell" th:text="${student.id}"></div>-->
+<!--        <div class="student-cell" th:text="${student.name}"></div>-->
+<!--        <div class="student-cell" th:text="${student.surname}"></div>-->
+<!--        <div class="student-cell" th:text="${student.birthDate}"></div>-->
+
+<!--    </div>-->
+<!--</div>-->
 
 </body>
 </html>
