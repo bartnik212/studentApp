@@ -12,23 +12,11 @@
 <body>
 <form th:action="@{/student/add}" method="post" th:object="${newStudent}">
 
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <label for="inputName">Name</label>
-                <input type="text" class="form-control" id="inputName" placeholder="Name" th:field="*{name}">
+    <label for="inputName">First name:</label> <input id="inputName" type="text" th:field="*{name}"><br/>
+    <label for="inputSurname">Last name:</label> <input id="inputSurname" type="text" th:field="*{surname}"><br/>
+    <label for="inputBirthDate">First name:</label> <input id="inputBirthDate" type="date" th:field="*{birthDate}"><br/>
 
-                <label for="inputSurname">Last name</label>
-                <input type="text" class="form-control" id="inputSurname" placeholder="Surname" th:field="*{surName}">
-
-                <label for="inputBirthDate">Birthdate</label>
-                <input type="date" class="form-control" id="inputBirthDate" placeholder="Name" th:field="*{birthDate}">
-
-                <input type="submit" class="btn btn-success" aria-label="Submit of radio button">
-
-            </div>
-        </div>
-    </div>
+    <input type="submit">
 
 </form>
 
