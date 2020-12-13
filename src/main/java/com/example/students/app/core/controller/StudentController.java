@@ -64,4 +64,6 @@ public class StudentController {
         }
         return "student_list";
     }
+
+
 }

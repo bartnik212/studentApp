@@ -25,6 +25,9 @@
             <div class="grade-table-header-cell">
                 Subject
             </div>
+            <div class="grade-table-header-cell">
+                Add grade
+            </div>
         </div>
         <div class="grade-table-row" th:each="grade: ${student.grades}">
             <div class="grade-table-cell" th:text="${grade.id}">
@@ -34,9 +37,9 @@
             <div class="grade-table-cell" th:text="${grade.gradeSubject}">
             </div>
 
-<!--            <div class="grade-table-cell">-->
-<!--                <a th:href="@{/grade/delete(id=${ocena.id})}">Delete</a>-->
-<!--            </div>-->
+            <div class="grade-table-cell">
+                <a th:href="@{/grade/add(id=${student.id})}">Add Grade</a>
+            </div>
         </div>
     </div>
 </div>
