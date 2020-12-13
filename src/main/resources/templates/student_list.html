@@ -25,18 +25,22 @@
         <div class="header-cell">
             Birth date
         </div>
+        <div class="header-cell">
+            Delete
+        </div>
     </div>
 
-        <div class="student-row" th:each="student : ${studentList}">
-            <div class="student-cell" th:text="${student.id}">
-            </div>
-            <div class="student-cell" th:text="${student.name}">
-            </div>
-            <div class="student-cell" th:text="${student.surname}">
-            </div>
-            <div class="student-cell" th:text="${student.birthDate}">
-            </div>
+    <div class="student-row" th:each="student : ${studentList}">
+        <div class="student-cell" th:text="${student.id}">
         </div>
+        <div class="student-cell" th:text="${student.name}">
+        </div>
+        <div class="student-cell" th:text="${student.surname}">
+        </div>
+        <div class="student-cell" th:text="${student.birthDate}">
+        </div>
+            <a th:href="@{/student/delete(studentId=${student.id})}">Delete</a>
+    </div>
 </div>
 
 

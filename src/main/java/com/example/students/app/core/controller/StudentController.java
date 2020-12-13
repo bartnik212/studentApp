@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -46,5 +47,11 @@ public class StudentController {
         model.addAttribute("studentList", studentList);
 
         return "student_list";
+    }
+
+    @GetMapping("/delete")
+    public String delete (@RequestParam(name = "studentId") Long studentId) {
+        studentService.delete(studentId);
+        return "redirect:/student/list";
     }
 }

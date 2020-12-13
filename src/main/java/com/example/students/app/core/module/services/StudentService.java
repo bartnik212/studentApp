@@ -22,4 +22,8 @@ public class StudentService {
     public List<Student> findAllStudents() {
         return studentRepository.findAll();
     }
+
+    public void delete (Long studentId) {
+        studentRepository.deleteById(studentId);
+    }
 }
