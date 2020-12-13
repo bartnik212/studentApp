@@ -42,6 +42,7 @@ public class StudentController {
     @GetMapping("/list")
     public String findAllStudents(Model model) {
         List<Student> studentList = studentService.findAllStudents();
+        model.addAttribute("whiteSpace", "\n<br>");
         model.addAttribute("studentList", studentList);
 
         return "student_list";
