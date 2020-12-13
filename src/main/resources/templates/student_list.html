@@ -39,7 +39,8 @@
         </div>
         <div class="student-cell" th:text="${student.birthDate}">
         </div>
-            <a th:href="@{/student/delete(studentId=${student.id})}">Delete</a>
+        <a th:href="@{/student/delete(studentId=${student.id})}">Delete</a>
+        <a th:href="@{'/student/grades/'+${student.id}}">Grades</a>
     </div>
 </div>
 

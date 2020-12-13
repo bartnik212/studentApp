@@ -4,12 +4,10 @@ import com.example.students.app.core.model.Student;
 import com.example.students.app.core.module.services.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/student")
@@ -53,5 +51,17 @@ public class StudentController {
     public String delete (@RequestParam(name = "studentId") Long studentId) {
         studentService.delete(studentId);
         return "redirect:/student/list";
+    }
+
+    @GetMapping("/grades/{id}")
+    public String grades(@PathVariable(name = "id") Long studentId, Model model){
+
+        Optional<Student> studentOptional = studentService.findStudent(studentId);
+        if (studentOptional.isPresent()) {
+            Student foundStudent = studentOptional.get();
+            model.addAttribute("student", foundStudent);
+            return "student_grades";
+        }
+        return "student_list";
     }
 }
