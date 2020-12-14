@@ -9,10 +9,10 @@
 /*    flex-direction: row;*/
 /*    display: flex;*/
 /*}*/
-.student-cell{
-    display: flex;
-    width: 10%;
-}
+/*.student-cell{*/
+/*    display: flex;*/
+/*    width: 10%;*/
+/*}*/
 
 .header-row{
     border: 2px solid #000;
