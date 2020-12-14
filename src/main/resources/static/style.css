@@ -1,14 +1,14 @@
-.table {
-    border: 1px solid #000;
-    padding: 1px;
-    margin: auto;
-    width: 70%;
-}
-.student-row{
-    border: 1px dot-dash #f00;
-    flex-direction: row;
-    display: flex;
-}
+/*.table {*/
+/*    border: 1px solid #000;*/
+/*    padding: 1px;*/
+/*    margin: auto;*/
+/*    width: 70%;*/
+/*}*/
+/*.student-row{*/
+/*    border: 1px dot-dash #f00;*/
+/*    flex-direction: row;*/
+/*    display: flex;*/
+/*}*/
 .student-cell{
     display: flex;
     width: 10%;
