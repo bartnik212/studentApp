@@ -10,6 +10,6 @@ public class NavbarController {
 
     @GetMapping("/")
     public String getNavbar() {
-        return "navbar";
+        return "landing_page";
     }
 }

@@ -21,7 +21,6 @@ public class StudentController {
 
     @GetMapping("landing_page")
     public String getLandingPage(Model model) {
-        model.addAttribute("helloSentence", "Witam w E-dzienniku");
         return "landing_page";
     }
 
