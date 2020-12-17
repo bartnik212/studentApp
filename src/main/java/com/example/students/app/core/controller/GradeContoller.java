@@ -26,7 +26,6 @@ public class GradeContoller {
     }
 
 
-
     @GetMapping("/add")
     public String getGradeForm(Model model, @RequestParam(name = "studentId", required = false) Long studentId) {
         model.addAttribute("grade", new Grade());
@@ -49,5 +48,12 @@ public class GradeContoller {
         } else {
             return "redirect:/student/list";
         }
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam(name = "gradeId") Long gradeId) {
+
+        gradeService.delete(gradeId);
+        return "redirect:/student/list";
     }
 }

@@ -16,4 +16,9 @@ public class GradeService {
     public void update(Grade grade) {
         gradeRepostiory.save(grade);
     }
+
+    public void delete(Long gradeId) {
+        gradeRepostiory.deleteById(gradeId);
+
+    }
 }

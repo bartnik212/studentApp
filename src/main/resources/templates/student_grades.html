@@ -9,7 +9,7 @@
     div {
         text-align: center;
     }
-    
+
     h2 {
         text-align: right;
     }
@@ -40,6 +40,7 @@
                     <th scope="col">Subject</th>
                     <th scope="col">Grade</th>
                     <th scope="col">Timestamp</th>
+                    <th scope="col">Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,12 +49,9 @@
                     <td th:text="${grade.value}"></td>
                     <td th:text="${grade.dateCreated}"></td>
 
-
-                    <!--                        <a th:href="@{/student/delete(studentId=${student.id})}">Delete</a>-->
-                    <!--                    </td>-->
-                    <!--                    <td>-->
-                    <!--                        <a th:href="@{'/student/grades/'+${student.id}}">Grades</a>-->
-                    <!--                    </td>-->
+                    <td>
+                        <a th:href="@{/grade/delete(gradeId=${grade.id})}">Delete</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>
