@@ -1,5 +1,7 @@
 package com.example.students.app.core.model;
 
+import lombok.Data;
+
 public enum GradeSubject {
 
     BIOLOGY("Biology"),
@@ -14,5 +16,7 @@ public enum GradeSubject {
         this.name = name();
     }
 
-
+    public String getName() {
+        return name;
+    }
 }
