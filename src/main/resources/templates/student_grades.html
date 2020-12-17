@@ -10,12 +10,16 @@
         text-align: center;
     }
 
-    h2 {
+    .average {
         text-align: right;
     }
 
     .student-name {
         padding-top: 80px;
+    }
+
+    button {
+        text-align: center;
     }
 
 </style>
@@ -76,12 +80,16 @@
     </div>
     <br/>
 
-    <div class="row">
-        <div class="col">
-            <h2 th:text="Average + ' ' + ${average}"></h2>
-
+    <div>
+        <div>
+            <h2 class="average" th:text="Average + ' ' + ${average}"></h2>
         </div>
+        <a class="addGrade" th:href="@{/grade/add(studentId=${student.id})}">
+            <button type="button" class="btn btn-warning">Add grade</button>
+        </a>
     </div>
 </div>
+</div>
+
 </body>
 </html>
