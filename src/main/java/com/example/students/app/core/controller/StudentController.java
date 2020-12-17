@@ -1,6 +1,5 @@
 package com.example.students.app.core.controller;
 
-import com.example.students.app.core.model.Grade;
 import com.example.students.app.core.model.GradeSubject;
 import com.example.students.app.core.model.Student;
 import com.example.students.app.core.module.services.StudentService;
@@ -49,13 +48,13 @@ public class StudentController {
     }
 
     @GetMapping("/delete")
-    public String delete (@RequestParam(name = "studentId") Long studentId) {
+    public String delete(@RequestParam(name = "studentId") Long studentId) {
         studentService.delete(studentId);
         return "redirect:/student/list";
     }
 
     @GetMapping("/grades/{id}")
-    public String grades(@PathVariable(name = "id") Long studentId, Model model){
+    public String grades(@PathVariable(name = "id") Long studentId, Model model) {
 
         Optional<Student> studentOptional = studentService.findStudent(studentId);
 
@@ -63,7 +62,6 @@ public class StudentController {
             Student foundStudent = studentOptional.get();
             model.addAttribute("student", foundStudent);
             model.addAttribute("gradeSubjects", GradeSubject.values());
-            model.addAttribute("grades", new Grade());
 
             return "student_grades";
         }

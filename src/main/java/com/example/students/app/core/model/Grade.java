@@ -1,8 +1,11 @@
 package com.example.students.app.core.model;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -19,6 +22,10 @@ public class Grade {
 
     @Enumerated(value = EnumType.STRING)
     private GradeSubject gradeSubject;
+
+    @CreationTimestamp
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateCreated;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude
