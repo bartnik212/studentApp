@@ -36,7 +36,7 @@ public class StudentController {
     @PostMapping("/add")
     public String postStudent(Student student) {
         studentService.save(student);
-        return "redirect:/student/landing_page";
+        return "redirect:/student/list";
     }
 
     @GetMapping("/list")
