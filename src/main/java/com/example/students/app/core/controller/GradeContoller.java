@@ -29,9 +29,10 @@ public class GradeContoller {
     @GetMapping("/add")
     public String getGradeForm(Model model, @RequestParam(name = "studentId", required = false) Long studentId) {
         model.addAttribute("grade", new Grade());
-        model.addAttribute("studentId", studentId);
+        model.addAttribute("student", new Student());
         model.addAttribute("allStudents", studentService.findAllStudents());
         model.addAttribute("allSubjects", Arrays.asList(GradeSubject.values()));
+
         return "grade_form";
     }
 

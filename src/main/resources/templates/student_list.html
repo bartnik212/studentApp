@@ -39,6 +39,7 @@
                     <th scope="col">First Name</th>
                     <th scope="col">Last name</th>
                     <th scope="col">Birthdate</th>
+                    <th scope="col">Average</th>
                     <th scope="col">Delete</th>
                     <th scope="col">Grades</th>
                 </tr>
@@ -49,6 +50,7 @@
                     <td th:text="${student.name}"></td>
                     <td th:text="${student.surname}"></td>
                     <td th:text="${student.birthDate}"></td>
+                    <td th:text="${student.average}"></td>
                     <td>
                         <a th:href="@{/student/delete(studentId=${student.id})}">Delete</a>
                     </td>

@@ -35,8 +35,5 @@ public class Student {
     @Formula("(SELECT AVG(g.value) from grade g where g.student_id=id)")
     private Double average;
 
-//    double d = 1.234567;
-//    DecimalFormat df = new DecimalFormat("#.##");
-//        System.out.print(df.format(d));
 
 }
