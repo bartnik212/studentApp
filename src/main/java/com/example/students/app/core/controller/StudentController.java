@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,6 +63,9 @@ public class StudentController {
             Student foundStudent = studentOptional.get();
             model.addAttribute("student", foundStudent);
             model.addAttribute("gradeSubjects", GradeSubject.values());
+
+            DecimalFormat df = new DecimalFormat("#.##");
+            model.addAttribute("average", df.format(foundStudent.getAverage()));
 
             return "student_grades";
         }

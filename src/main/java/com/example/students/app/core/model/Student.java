@@ -3,6 +3,7 @@ package com.example.students.app.core.model;
 
 import lombok.*;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Formula;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -31,6 +32,11 @@ public class Student {
     @EqualsAndHashCode.Exclude
     private Set<Grade> grades;
 
+    @Formula("(SELECT AVG(g.value) from grade g where g.student_id=id)")
+    private Double average;
 
+//    double d = 1.234567;
+//    DecimalFormat df = new DecimalFormat("#.##");
+//        System.out.print(df.format(d));
 
 }
