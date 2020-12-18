@@ -1,97 +1,94 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-
-<!--<style>-->
-<!--    .mb-3 {-->
-<!--        width: 100%;-->
-<!--        max-width: 330px;-->
-<!--        margin: auto;-->
-<!--        position: relative;-->
-<!--        box-sizing: border-box;-->
-<!--        height: auto;-->
-<!--    }-->
-<!--</style>-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"-->
-<!--          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">-->
-
-<!--&lt;!&ndash;    <link rel="stylesheet" th:href="@{/style.css}">&ndash;&gt;-->
-<!--    <title>Grade Form</title>-->
-<!--</head>-->
-
-<!--<body>-->
-
-<!--&lt;!&ndash;<h1 th:text="${student.name} + ' ' + ${student.surname}"></h1>&ndash;&gt;-->
-<!--<br>-->
-
-<!--<form th:action="@{/grade/add}" method="post" th:object="${grade}">-->
-<!--    <div class="mb-3">-->
-<!--        <label for="inputSubject" class="form-label">Value</label>-->
-<!--        <input type="text" th:field="*{value}" class="form-control" id="inputSubject" aria-describedby="name">-->
-<!--    </div>-->
-<!--    <div class="mb-3">-->
-<!--        <select class="form-label">-->
-<!--                <option th:each="subjectType : ${allSubjects}" th:value="${subjectType}" th:field="*{gradeSubject}" th:text="${subjectType.name}">-->
-<!--                </option>-->
-<!--        </select>-->
-
-<!--    </div>-->
-<!--    <div style="text-align: center">-->
-<!--        <button type="submit" class="btn btn-warning">Submit</button>-->
-<!--    </div>-->
-<!--</form>-->
-<!--</body>-->
-<!--&lt;!&ndash;<body>&ndash;&gt;-->
-<!--&lt;!&ndash;<form th:action="@{/grade/add}" method="post" th:object="${grade}">&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;    <input type="number" th:value="${studentId}" name="studentIdValue" hidden>&ndash;&gt;&ndash;&gt;-->
-
-<!--&lt;!&ndash;    <label for="gradeValueInput">Grade value:</label> <input id="gradeValueInput" type="number" min="2" max="6"&ndash;&gt;-->
-<!--&lt;!&ndash;                                                             step="0.5" th:field="*{value}"><br/>&ndash;&gt;-->
-
-<!--&lt;!&ndash;    <label for="subject">Subject:</label>&ndash;&gt;-->
-<!--&lt;!&ndash;    <select id="subject" th:field="*{gradeSubject}">&ndash;&gt;-->
-<!--&lt;!&ndash;        <option th:each="subjectType : ${allSubjects}" th:value="${subjectType}" th:text="${subjectType.name}">&ndash;&gt;-->
-<!--&lt;!&ndash;        </option>&ndash;&gt;-->
-<!--&lt;!&ndash;    </select>&ndash;&gt;-->
-
-<!--&lt;!&ndash;    <br/>&ndash;&gt;-->
-<!--&lt;!&ndash;    <input type="submit">&ndash;&gt;-->
-<!--&lt;!&ndash;</form>&ndash;&gt;-->
-
-<!--&lt;!&ndash;</body>&ndash;&gt;-->
-
-<!--</html>-->
-
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<style>
+    .mb-3 {
+        width: 100%;
+        max-width: 330px;
+        margin: auto;
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+    }
+
+    button {
+        width: 100%;
+        max-width: 330px;
+        margin: auto;
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        text-align: center;
+        padding-left: 600px
+    }
+
+    .ui-button {
+        padding-top: 40px;
+
+    }
+
+
+</style>
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    <link rel="stylesheet" th:href="@{/style.css}">
+    <!--    <link rel="stylesheet" th:href="@{/style.css}">-->
     <title>Grade Form</title>
 </head>
-<body>
 
+<body>
 <form th:action="@{/grade/add}" method="post" th:object="${grade}">
     <input type="number" th:value="${studentId}" name="studentIdValue" hidden>
 
-    <label for="gradeValueInput">Grade value:</label> <input id="gradeValueInput" type="number" min="2" max="6"
-                                                             step="0.5" th:field="*{value}"><br/>
+    <div class="mb-3">
+        <label for="gradeValueInput" class="form-label">Grade Value</label>
+        <input type="text" th:field="*{value}" class="form-control" id="gradeValueInput" aria-describedby="name"
+               th:min="2" th:max="6" th:step="0.5">
 
-    <label for="subject">Subject:</label>
-    <select id="subject" th:field="*{gradeSubject}">
-        <option th:each="subjectType : ${allSubjects}" th:value="${subjectType}" th:text="${subjectType.name}">
-        </option>
-    </select>
+        <br>
+        <label for="subject">Subject:</label>
+        <select id="subject" th:field="*{gradeSubject}">
+            <option th:each="subjectType : ${allSubjects}" th:value="${subjectType}" th:text="${subjectType.name}">
+            </option>
+        </select>
 
-    <br/>
-    <input type="submit">
+        <!--    <div style="padding-left: 649px" class="btn-group">-->
+        <!--        <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown"-->
+        <!--                aria-expanded="false">-->
+        <!--        </button>-->
+        <!--        <ul th:field="*{gradeSubject}" class="dropdown-menu">-->
+        <!--            <li><a th:each="subjectType : ${allSubjects}" th:value="subjectType" th:text="${subjectType.name}"-->
+        <!--                   class="dropdown-item"></a></li>-->
+        <!--        </ul>-->
+        <!--    </div>-->
+
+
+        <div class="ui-button" style="text-align: center">
+            <button type="submit" class="btn btn-warning">Submit</button>
+        </div>
+
+
 </form>
 
+<!--<div class="dropdown">-->
+<!--    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--        Dropdown button-->
+<!--    </button>-->
+<!--    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+<!--        <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--        <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--        <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--    </ul>-->
+<!--</div>-->
 
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
