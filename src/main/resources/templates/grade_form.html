@@ -1,63 +1,97 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+
+<!--<style>-->
+<!--    .mb-3 {-->
+<!--        width: 100%;-->
+<!--        max-width: 330px;-->
+<!--        margin: auto;-->
+<!--        position: relative;-->
+<!--        box-sizing: border-box;-->
+<!--        height: auto;-->
+<!--    }-->
+<!--</style>-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"-->
+<!--          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">-->
+
+<!--&lt;!&ndash;    <link rel="stylesheet" th:href="@{/style.css}">&ndash;&gt;-->
+<!--    <title>Grade Form</title>-->
+<!--</head>-->
+
+<!--<body>-->
+
+<!--&lt;!&ndash;<h1 th:text="${student.name} + ' ' + ${student.surname}"></h1>&ndash;&gt;-->
+<!--<br>-->
+
+<!--<form th:action="@{/grade/add}" method="post" th:object="${grade}">-->
+<!--    <div class="mb-3">-->
+<!--        <label for="inputSubject" class="form-label">Value</label>-->
+<!--        <input type="text" th:field="*{value}" class="form-control" id="inputSubject" aria-describedby="name">-->
+<!--    </div>-->
+<!--    <div class="mb-3">-->
+<!--        <select class="form-label">-->
+<!--                <option th:each="subjectType : ${allSubjects}" th:value="${subjectType}" th:field="*{gradeSubject}" th:text="${subjectType.name}">-->
+<!--                </option>-->
+<!--        </select>-->
+
+<!--    </div>-->
+<!--    <div style="text-align: center">-->
+<!--        <button type="submit" class="btn btn-warning">Submit</button>-->
+<!--    </div>-->
+<!--</form>-->
+<!--</body>-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;<form th:action="@{/grade/add}" method="post" th:object="${grade}">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <input type="number" th:value="${studentId}" name="studentIdValue" hidden>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <label for="gradeValueInput">Grade value:</label> <input id="gradeValueInput" type="number" min="2" max="6"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                             step="0.5" th:field="*{value}"><br/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <label for="subject">Subject:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;    <select id="subject" th:field="*{gradeSubject}">&ndash;&gt;-->
+<!--&lt;!&ndash;        <option th:each="subjectType : ${allSubjects}" th:value="${subjectType}" th:text="${subjectType.name}">&ndash;&gt;-->
+<!--&lt;!&ndash;        </option>&ndash;&gt;-->
+<!--&lt;!&ndash;    </select>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <br/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <input type="submit">&ndash;&gt;-->
+<!--&lt;!&ndash;</form>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+
+<!--</html>-->
+
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<style>
-    .mb-3 {
-        width: 100%;
-        max-width: 330px;
-        margin: auto;
-        position: relative;
-        box-sizing: border-box;
-        height: auto;
-    }
-</style>
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-<!--    <link rel="stylesheet" th:href="@{/style.css}">-->
+    <link rel="stylesheet" th:href="@{/style.css}">
     <title>Grade Form</title>
 </head>
-
 <body>
 
-<!--<h1 th:text="${student.name} + ' ' + ${student.surname}"></h1>-->
-<br>
-
 <form th:action="@{/grade/add}" method="post" th:object="${grade}">
-    <div class="mb-3">
-        <label for="inputSubject" class="form-label">Subject</label>
-        <input type="text" th:field="*{gradeSubject}" class="form-control" id="inputSubject" aria-describedby="name">
-    </div>
-    <div class="mb-3">
-        <label for="inputValue" class="form-label">Value</label>
-                <option th:each="subjectType : ${allSubjects}" th:value="${subjectType}" th:text="${subjectType.name}">
-                </option>
-        <input type="text" th:field="*{value}" class="form-control" id="inputValue">
+    <input type="number" th:value="${studentId}" name="studentIdValue" hidden>
 
-    </div>
-    <div style="text-align: center">
-        <button type="submit" class="btn btn-warning">Submit</button>
-    </div>
+    <label for="gradeValueInput">Grade value:</label> <input id="gradeValueInput" type="number" min="2" max="6"
+                                                             step="0.5" th:field="*{value}"><br/>
+
+    <label for="subject">Subject:</label>
+    <select id="subject" th:field="*{gradeSubject}">
+        <option th:each="subjectType : ${allSubjects}" th:value="${subjectType}" th:text="${subjectType.name}">
+        </option>
+    </select>
+
+    <br/>
+    <input type="submit">
 </form>
+
+
 </body>
-
-<!--<form th:action="@{/grade/add}" method="post" th:object="${grade}">-->
-<!--    <input type="number" th:value="${studentId}" name="studentIdValue" hidden>-->
-
-<!--    <label for="gradeValueInput">Grade value:</label> <input id="gradeValueInput" type="number" min="2" max="6"-->
-<!--                                                             step="0.5" th:field="*{value}"><br/>-->
-
-<!--    <label for="subject">Subject:</label>-->
-<!--    <select id="subject" th:field="*{gradeSubject}">-->
-<!--        <option th:each="subjectType : ${allSubjects}" th:value="${subjectType}" th:text="${subjectType.name}">-->
-<!--        </option>-->
-<!--    </select>-->
-
-<!--    <br/>-->
-<!--    <input type="submit">-->
-<!--</form>-->
-
-
 </html>
