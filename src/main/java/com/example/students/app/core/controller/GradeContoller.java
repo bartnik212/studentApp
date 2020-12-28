@@ -28,6 +28,9 @@ public class GradeContoller {
 
     @GetMapping("/add")
     public String getGradeForm(Model model, @RequestParam(name = "studentId", required = false) Long studentId) {
+        Optional<Student> studentOptional = studentService.findStudent(studentId);
+        studentOptional.ifPresent(student -> model.addAttribute("student", student));
+
         model.addAttribute("grade", new Grade());
         model.addAttribute("studentId", studentId);
         model.addAttribute("allStudents", studentService.findAllStudents());
@@ -46,7 +49,8 @@ public class GradeContoller {
             gradeService.update(grade);
             return "redirect:/student/list";
 
-//            return "redirect:/student/grades/" + studentIdValue;
+//            return "redirect:/student/gra
+//            des/" + studentIdValue;
         } else {
             return "redirect:/student/list";
         }
