@@ -7,7 +7,7 @@ HOW TO OPEN THE APPLICATION
 
 - clone the repository
 - run the application in some development environment
-- enter http://localhost:8080/landing_page into the browser
+- enter http://localhost:8080/student/landing_page into the browser
 
 USED TECHNOLOGIES:
  - Java 11 
